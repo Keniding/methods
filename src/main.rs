@@ -1,3 +1,15 @@
+mod rectangle;
+
+use rectangle::Rectangle;
+
 fn main() {
-    println!("Hello, world!");
+    let rect = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        rect.area()
+    );
 }
