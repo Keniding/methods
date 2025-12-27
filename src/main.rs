@@ -12,4 +12,8 @@ fn main() {
         "The area of the rectangle is {} square pixels.",
         rect.area()
     );
+
+    if rect.width() {
+        println!("The rectangle has width {} square has a nonzero!", rect.width);
+    }
 }

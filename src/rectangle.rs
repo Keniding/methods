@@ -15,4 +15,11 @@ impl Rectangle {
     pub fn area(&self) -> u32 {
         self.width * self.height
     }
+
+    // Asignar mismo nombre de un atributo a un Method
+    // Aquí, elegimos que el width Method devuelva true si el valor del width campo de la instancia es mayor que 0y false si el valor es 0: Podemos usar un campo dentro de un Method con el mismo nombre para cualquier propósito. En main, cuando se usan rect1.width paréntesis después, Rust sabe que nos referimos al Method width. Cuando no se usan paréntesis, Rust sabe que nos referimos al campo width.
+    // A menudo, pero no siempre, cuando asignamos a un Method el mismo nombre que a un campo, queremos que solo devuelva el valor del campo y no haga nada más. Este tipo de métodos se denominan getters , y Rust no los implementa automáticamente para campos de estructura como otros lenguajes. Los getters son útiles porque permiten hacer que el campo sea privado, pero el Method público, lo que permite el acceso de solo lectura a ese campo como parte de la API pública del tipo. En el capítulo 7 , analizaremos qué son "público" y "privado" y cómo designar un campo o Method como público o privado .
+    pub fn width(&self) -> bool {
+        self.width > 0
+    }
 }
