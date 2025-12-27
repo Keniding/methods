@@ -26,4 +26,33 @@ impl Rectangle {
     pub fn can_hold(&self, other: &Rectangle) -> bool {
         self.width > other.width && self.height > other.height
     }
+    /*
+    Funciones asociadas (con impl)
+    Todas las funciones definidas dentro de un impl bloque se denominan funciones asociadas porque están asociadas al tipo que lleva el nombre de impl. Podemos definir funciones asociadas que no tengan self como primer parámetro (y, por lo tanto, no sean métodos) porque no necesitan una instancia del tipo para funcionar. Ya hemos usado una función como esta: la String::from función definida en el String tipo.
+    Las funciones asociadas que no son métodos se suelen usar para constructores que devuelven una nueva instancia de la estructura. Suelen llamarse new, pero new no es un nombre especial ni está integrado en el lenguaje. Por ejemplo, podríamos proporcionar una función asociada llamada square que tuviera un parámetro de dimensión y lo usara como ancho y alto, facilitando así la creación de un cuadrado Rectangle en lugar de tener que especificar el mismo valor dos veces:
+     */
+
+    /*
+    Las Self palabras clave en el tipo de retorno y en el cuerpo de la función son alias para el tipo que aparece después de la impl palabra clave, que en este caso es Rectangle.
+    Para llamar a esta función asociada, usamos la ::sintaxis con el nombre de la estructura; let sq = Rectangle::square(3);es un ejemplo. Esta función tiene un espacio de nombres definido por la estructura: Esta ::sintaxis se utiliza tanto para funciones asociadas como para espacios de nombres creados por módulos.
+     */
+    pub fn square(size: u32) -> Self {
+        Self {
+            width: size,
+            height: size,
+        }
+    }
+}
+
+// Múltiples implementaciones
+impl Rectangle {
+    pub fn other_impl_rectangle(&self) {
+        println!("The area of the rectangle is {}", self.area());
+    }
+}
+
+impl Rectangle {
+    pub fn other_area(&self) -> u32 {
+        self.height * self.width
+    }
 }

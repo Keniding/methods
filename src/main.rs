@@ -40,5 +40,12 @@ fn main() {
     println!(
         "Can rect1 hold rect3? {}",
         rect1.can_hold(&rect3)
-    )
+    );
+
+    let square = Rectangle::square(30);
+    println!("Square: {:?}", square);
+    println!("Area of square is {}", square.area());
+
+    println!("Rectangle: {:?}", rect.other_impl_rectangle());
+    println!("Area of square is {}", square.other_area());
 }
